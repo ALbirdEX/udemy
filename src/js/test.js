@@ -28,3 +28,71 @@ const storeDescription = {
     },
     open: true
 };
+
+//2 (lessons 21)
+//Что выведет в консоль код?
+
+console.log( NaN || 2 || undefined ); // 2 т.к. || запинается на правде
+
+console.log( NaN && 2 && undefined ); // NaN (false)
+// оператор && всегда возвращает первое ложное значение если оно есть, на нем он останавливается и дальше код не идет
+
+console.log( 1 && 2 && 3 ); // 3 (true)
+// оператор && всегда возвращает первое ложное значение если оно есть, на нем он останавливается и дальше код не идет!!!
+// если все аргументы верны и код дошёл до конца, то возвращается значение последнего аргумента!!!
+
+console.log( !1 && 2 || !3 ); // false т.к. !(НЕ)
+
+console.log( 25 || null && !3 ); // 25 т.к. null && !3 - null, 25 || null - 25 т.к. || запинается на правде
+
+console.log( NaN || null || !3 || undefined || 5); // 5
+
+console.log( NaN || null && !3 && undefined || 5); // 5
+
+console.log( 5 === 5 && 3 > 1 || 5); //true
+
+// Выполняется ли условие?
+
+const hamburger = 3;
+const fries = 3;
+const cola = 0;
+const nuggets = 2;
+
+if (hamburger === 3 && cola || fries === 3 && nuggets) {
+    console.log('Done!')
+}
+// да т.к.
+// hamburger === 3 && cola - 0 (0, '', null, undefaind, NaN - всегда false),
+// fries === 3 && nuggets - 2
+// 0 || 2 получаем 2 (true) - условие выполняется
+
+// Выполняется ли условие?
+// Переменная hamburger задана через let, так как const подразумевает какое-либо начальное значение.
+// С const будет ошибка, можете проверить.
+// А без значения там undefined
+
+let hamburger2;
+const fries2 = NaN;
+const cola2 = 0;
+const nuggets2 = 2;
+
+if (hamburger2 || cola2 || fries2 === 3 || nuggets2) {
+   console.log('Done!')
+}
+// да т.к. ||(или) запинается на правде, nuggets = 2 по условию что-то одно (...или...или...или...)
+
+//Выполняется ли условие?
+
+let hamburger3;
+const fries3 = NaN;
+const cola3 = 0;
+const nuggets3 = 2;
+
+if (hamburger3 && cola3 || fries3 === 3 && nuggets3) {
+    console.log('Done!')
+}
+//нет т.к.
+// hamburger3 && cola3 - undefined т.к. hamburger3 - неопределенный,
+// fries3 === 3 && nuggets3 - false (0, '', null, undefaind, NaN - всегда false), && запинается на лжи
+// false && nuggets3 будет false
+// undefined || false - false
