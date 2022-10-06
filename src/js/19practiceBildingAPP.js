@@ -20,4 +20,5 @@ const a = prompt('Один из просмотренных фильмов?', '')
 personalMovieDB.movies[a] = b;  // записываем свойства в объект,
 personalMovieDB.movies[c] = d;  // записываем в ключ - lastMovie, в значение -  reiting.
 
-console.log(personalMovieDB)
+console.log(personalMovieDB);
+
